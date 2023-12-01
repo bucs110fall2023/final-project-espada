@@ -41,60 +41,39 @@ class PhantomCurator:
             ".py": "Programming_Curated",
             ".java": "Programming_Curated",
             ".cpp": "Programming_Curated",
+
         }
 
     def curate(self):
-        log_filename = "file_curator_log.txt"
+        log_filename = "Enchiridion.txt"
 
         for file in self.messy_cabinet:
             for file_extension, directory in self.curator_directories.items():
                 if file.lower().endswith(file_extension.lower()):
                     directory_path = os.path.join(self.mypath, directory)
                     if not os.path.exists(directory_path):
-                        try:
-                            os.makedirs(directory_path, exist_ok=True)
-                            print(f"Creating {directory} folder")
-                        except OSError as e:
-                            error_message = f"Error creating directory '{directory_path}': {e}"
-                            print(error_message)
-                            self.log_file_movement(log_filename, file, "", "", error_message)
-                            continue
+                        os.makedirs(directory_path, exist_ok=True)
 
                     source_file_path = os.path.join(self.mypath, file)
                     destination_file_path = os.path.join(directory_path, file)
 
-                    try:
-                        shutil.move(source_file_path, destination_file_path)
-                        print(f"Moved '{file}' to {directory}")
-                    except FileNotFoundError as e:
-                        error_message = f"Error moving '{file}': {e}. File not found."
-                        print(error_message)
-                        self.log_file_movement(log_filename, file, source_file_path, destination_file_path, error_message)
-                    except PermissionError as e:
-                        error_message = f"Error moving '{file}': {e}. Permission denied."
-                        print(error_message)
-                        self.log_file_movement(log_filename, file, source_file_path, destination_file_path, error_message)
-                    except Exception as e:
-                        error_message = f"Error moving '{file}': {e}"
-                        print(error_message)
-                        self.log_file_movement(log_filename, file, source_file_path, destination_file_path, error_message)
+                    self.log_file_movement(log_filename, file, source_file_path, destination_file_path)
 
-    def log_file_movement(self, log_filename, file, source, destination, error_message=None):
+                    shutil.move(source_file_path, destination_file_path)
+
+    def log_file_movement(self, log_filename, file, source, destination):
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         log_entry = f"Timestamp: {timestamp}\n"
         log_entry += f"File: {file}\n"
         log_entry += f"Source: {source}\n"
         log_entry += f"Destination: {destination}\n"
-        if error_message:
-                log_entry += f"Error: {error_message}\n"
-                log_entry += "=" * 40
+        log_entry += "=" * 40  
 
-                with open(log_filename, "a") as log_file:
-                    log_file.write(log_entry + "\n\n")
+        with open(log_filename, "a") as log_file:
+            log_file.write(log_entry + "\n\n")
 
 
-# Example usage
+
 file_path = "C:/Users/dapoa/"
 curator = PhantomCurator(file_path)
-curator.curate() 
-curator.log_file_movement()
+curator.curate()
