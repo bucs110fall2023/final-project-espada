@@ -42,4 +42,6 @@ Hamid Ajose and Aidan Gonzalez
 
 ## ATP
 
+Step: 1         Action:  Correctly type the pathing for the folder you want to be sorted (Ex. C:/Users/Owner/Desktop/Homework)  Result: The textbox will display the pathing typed out to be used in the program  
 
+Step: 2 Action: Press the "Click to Sort" button after typing the pathing in the box Result: The PhantomCurator() will intilize using the pathing typed in the textbox to determine what is to be sorted
