@@ -30,18 +30,15 @@ Hamid Ajose and Aidan Gonzalez
 
 ### Features
 
-1. << Feature 1 >>
-2. << Feature 2 >>
-3. << Feature 3 >>
-4. << Feature 4 >>
-5. << Feature 5 >>
+1. curates files into subdirectories based on their file extension
+2. user inputted pathing in the GUI 
+3. a log file to track movement of files done by the curate function
+4. buttons in the gui to engage the curate function and to open the log file
+5. creates folders for the sorted files to be placed into
 
 ### Classes
 
-- << You should have a list of each of your classes with a description >>
+PhantomCurator: Contains the curate function which curates the files selected by the user into seperate folders based off of the curator_dictionary and contains the log_file_movement which allows for the movement of the files to be logged into the Enchiridion.txt file for the user to see
+Controller: contains the GUI of the program with directions and buttons to engage the curate() function and a button for opening the Enchridion.txt file. Also has a textbox that allows for user inputted file pathing to direct the curate() function
 
 ## ATP
-
-Step: 1         Action:  Correctly type the pathing for the folder you want to be sorted (Ex. C:/Users/Owner/Desktop/Homework)  Result: The textbox will display the pathing typed out to be used in the program  
-
-Step: 2 Action: Press the "Click to Sort" button after typing the pathing in the box Result: The PhantomCurator() will intilize using the pathing typed in the textbox to determine what is to be sorted
