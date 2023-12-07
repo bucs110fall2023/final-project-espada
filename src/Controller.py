@@ -9,9 +9,20 @@ class Controller:
             self.root = tk.Tk()
             
             def log_reader():
+                '''
+                general: this function simply opens the log file and is assigned to a button in the gui
+                args: N/A
+                return: N/A
+                '''
                 os.system("start notepad Enchiridion.txt")
             
             def file_sorter():
+                    '''
+                    general: this function creates allows for user input for file pathing in the gui and then it runs the other functions
+                    to log file movement and to curate the files
+                    args: N/A
+                    return: N/A
+                    '''
                     curator = PhantomCurator(self.textbox.get("1.0",'end-1c'))
                     curator.curate()
                     curator.log_file_movement()

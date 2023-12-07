@@ -44,6 +44,11 @@ class PhantomCurator:
         }
 
     def curate(self):
+        '''
+        general: curates files into sub directories based on file extension
+        args: self: instance of the class
+        return: N/A
+        '''
         log_filename = "Enchiridion.txt"
 
         for file in self.messy_cabinet:
@@ -61,6 +66,16 @@ class PhantomCurator:
                     shutil.move(source_file_path, destination_file_path)
 
     def log_file_movement(self, log_filename, file, source, destination):
+        '''
+        general: logs the file movement from source to destination
+        args:
+        self: The instance of the class.
+        log_filename: Name of the log file.
+        file: Name of the file being moved.
+        source: Source path of the file.
+        destination: Destination path of the file.
+        returns: N/A
+        '''
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         log_entry = f"Timestamp: {timestamp}\n"
         log_entry += f"File: {file}\n"
