@@ -20,7 +20,7 @@ Hamid Ajose and Aidan Gonzalez
 
 ### Initial Design
 
-![initial gui](assets/gui.jpg)
+![initial gui](assets/initial_gui.png)
 
 ### Final Design
 
